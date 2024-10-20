@@ -1,0 +1,54 @@
+pipeline {
+    agent any  // This specifies that the pipeline can run on any available agent
+
+    tools {
+        maven 'Maven-3.8.6'  // Specify the Maven version installed in Jenkins
+        jdk 'Java-21'  // Specify the Java version installed in Jenkins
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout the code from the GitHub repository
+                git 'https://github.com/Useles5/maven-test.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Execute Maven to build the project
+                script {
+                    sh 'mvn clean install'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run the tests (if any) using Maven
+                script {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deploy to your environment (can be further customized)
+                script {
+                    echo 'Deploying the project...'
+                    // Add deployment steps here if necessary
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build and deployment successful!'
+        }
+        failure {
+            echo 'Build or deployment failed!'
+        }
+    }
+}
