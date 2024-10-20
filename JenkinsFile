@@ -2,8 +2,8 @@ pipeline {
     agent any  // This specifies that the pipeline can run on any available agent
 
     tools {
-        maven 'Maven-3.8.6'  // Specify the Maven version installed in Jenkins
-        jdk 'Java-21'  // Specify the Java version installed in Jenkins
+        maven 'Maven'  // Specify the Maven version installed in Jenkins
+        jdk 'JDK'  // Specify the Java version installed in Jenkins
     }
 
     stages {
