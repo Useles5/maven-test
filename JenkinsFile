@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from the GitHub repository
-                git 'https://github.com/Useles5/maven-test.git'
+                git branch: 'main', url: 'https://github.com/Useles5/maven-test.git'
             }
         }
 
