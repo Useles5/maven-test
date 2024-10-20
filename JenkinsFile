@@ -18,7 +18,7 @@ pipeline {
             steps {
                 // Execute Maven to build the project
                 script {
-                    sh 'mvn clean install'
+                    bat 'mvn clean install'
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 // Run the tests (if any) using Maven
                 script {
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
         }
